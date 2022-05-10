@@ -18,17 +18,18 @@ public class UserKafkaController {
 	@Autowired KafkaTemplate<String, User> vKafkaUserXmlTemplate;
 	
 	private static final String TOPIC= "testing";
+	private static final String TOPIC_JSON= "testing_json";
 	
 	@GetMapping("/publish/{message}")
 	public String post(@PathVariable("message") String pMessage) {
 		vKafkaTemplate.send(TOPIC, pMessage);
-		return "Published Successfully";
+		return "String Message Published Successfully";
 	}
 	
 	@GetMapping("/publish/user/{name}")
 	public String postUser(@PathVariable("name") String pName) {
-		vKafkaUserTemplate.send(TOPIC, new User(pName, "Technical", 12000));
-		return "Published Successfully";
+		vKafkaUserTemplate.send(TOPIC_JSON, new User(pName, "Technical", 12000));
+		return "JSON  Message Published Successfully";
 	}
 	
 	@GetMapping("/publish/user/xml/{name}")

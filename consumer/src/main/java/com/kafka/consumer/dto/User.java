@@ -1,4 +1,4 @@
-package com.kafka.producer.KafkaProducer.dto;
+package com.kafka.consumer.dto;
 
 import java.io.Serializable;
 
@@ -32,6 +32,10 @@ public class User implements Serializable {
 	}
 	public User() {
 		super();
+	}
+	@Override
+	public String toString() {
+		return "User [sName=" + sName + ", sDept=" + sDept + ", dSalary=" + dSalary + "]";
 	}
 	
 	
