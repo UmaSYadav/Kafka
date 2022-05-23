@@ -1,0 +1,14 @@
+spring:
+  cloud:
+    function:
+      definition: toUpperCase;data;consumer
+    stream:      bindings:        data-in-0:
+          destination: data-in
+        data-out-0:
+          destination: data-out
+        toUpperCase-in-0:
+          destination: data-out
+        toUpperCase-out-0:
+          destination: uppercase-out
+        consumer-in-0:
+          destination: uppercase-out
